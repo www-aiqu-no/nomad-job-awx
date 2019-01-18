@@ -7,11 +7,16 @@ I use [terraform](https://terraform.io/) for managing nomad-jobs, and hence the 
 
 # Disclaimer
 To run in a production environment, you should modify the file to suit your
-environment; e.g. integrate with [consul](https://www.consul.io/) and
-[vault](https://www.vaultproject.io), persist storage properly for database,
-use versioned docker images/private repo, increase resources,
-configure dynamic addressing (example: [envoy](https://www.envoyproxy.io/))),
-and so on..
+environment. Examples:
+
+- Increase increase job resources (cpu, memory, ..)
+- Integrate with [consul](https://www.consul.io/)
+- Integrate with [vault](https://www.vaultproject.io)
+- Persist storage properly for database
+- Use versioned container images
+- Use private container repo
+- configure dynamic addressing (example: [envoy](https://www.envoyproxy.io/)))
 
 # TODO
-- Use [consul template](https://github.com/hashicorp/consul-template)
+- Add [consul template](https://github.com/hashicorp/consul-template) &
+terraform integration
