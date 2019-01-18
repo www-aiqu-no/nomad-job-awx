@@ -1,13 +1,18 @@
-# Ansible Tower (awx) | [HashiCorp](https://www.hashicorp.com/) Nomad
+# Ansible Tower (awx) on Nomad
 This is a basic job-definition for deploying
 [awx](https://github.com/ansible/awx) to your
 [nomad](https://www.nomadproject.io/) cluster
+([HashiCorp](https://www.hashicorp.com/))
 
-# Deployment
-I use [terraform](https://terraform.io/) for managing nomad-jobs, and hence the job definition is written in
-[hcl-format](https://github.com/hashicorp/hcl)
+## Deployment
+I use [terraform](https://terraform.io/) for managing nomad-jobs, and hence the
+job-definition is written in [hcl-format](https://github.com/hashicorp/hcl)
 
-# Disclaimer
+All tasks are defined in a single "group" (meaning they will be scheduled to run
+on the same host). If you split the tasks, then the interpolated variables will
+not work, and need to be re-defined
+
+## Disclaimer
 To run in a production environment, you should modify the file to suit your
 environment. Examples:
 
@@ -19,6 +24,6 @@ environment. Examples:
 - Use private container repo
 - configure dynamic addressing (example: [envoy](https://www.envoyproxy.io/))
 
-# TODO
+## TODO
 - Add [consul template](https://github.com/hashicorp/consul-template) &
 terraform integration
