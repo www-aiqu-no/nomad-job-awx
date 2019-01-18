@@ -1,5 +1,7 @@
-# NOMAD Ansible Tower (awx)
-This is a basic [nomad](https://www.nomadproject.io/) job-definition for testing [awx](https://github.com/ansible/awx)
+# Ansible Tower (awx) | [HashiCorp](https://www.hashicorp.com/) Nomad
+This is a basic job-definition for deploying
+[awx](https://github.com/ansible/awx) to your
+[nomad](https://www.nomadproject.io/) cluster
 
 # Deployment
 I use [terraform](https://terraform.io/) for managing nomad-jobs, and hence the job definition is written in
@@ -15,7 +17,7 @@ environment. Examples:
 - Persist storage properly for database
 - Use versioned container images
 - Use private container repo
-- configure dynamic addressing (example: [envoy](https://www.envoyproxy.io/)))
+- configure dynamic addressing (example: [envoy](https://www.envoyproxy.io/))
 
 # TODO
 - Add [consul template](https://github.com/hashicorp/consul-template) &
