@@ -22,7 +22,8 @@ environment. Examples:
 - Persist storage properly for database
 - Use versioned container images
 - Use private container repo
-- configure dynamic addressing (example: [envoy](https://www.envoyproxy.io/))
+- Configure more dynamic addressing (example: [envoy](https://www.envoyproxy.io/),
+[Consul Connect](https://www.consul.io/docs/connect/index.html))
 
 ## TODO
 - Add [consul template](https://github.com/hashicorp/consul-template) &
