@@ -1,5 +1,5 @@
 ## =============================================================================
-## Application: Ansible Tower Community (awx)
+## Application: Ansible Tower Community (awx) v3.0.1 and lower
 ##   - awx-task
 ##   - awx-web
 ##   - postgres
@@ -68,7 +68,7 @@ job "core-awx" {
       }
 
       config {
-        image = "ansible/awx_task:latest"
+        image = "ansible/awx_task:3.0.1"
         hostname = "awx"
         port_map {
           api = 8052
@@ -116,7 +116,7 @@ job "core-awx" {
       }
 
       config {
-        image = "ansible/awx_web:latest"
+        image = "ansible/awx_web:3.0.1"
         hostname = "awxweb"
         port_map {
           ui = 8052
