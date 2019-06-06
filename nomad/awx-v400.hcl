@@ -35,8 +35,6 @@ job "awx-400" {
   group "tower" {
     count = 1
 
-    #affinity {}
-
     restart {
       attempts = 5
       delay    = "30s"
@@ -53,6 +51,8 @@ job "awx-400" {
       max_delay      = "1h"
     }
 
+    ephemeral_disk { sticky  = true }
+
 ## -----------------------------------------------------------------------------
 
     task "awx" {
@@ -65,7 +65,7 @@ job "awx-400" {
 
       # Required on disk. Will download all files to default allocation folder
       artifact {
-        source = "git::https://github.com/www-aiqu-no/nomad-job-awx/resources"
+        source = "git::https://github.com/www-aiqu-no/nomad-job-awx.git//resources"
       }
 
       env {
@@ -111,13 +111,13 @@ job "awx-400" {
         network {
           mbits = 25
           port "http"  { static = 8052 }
-          port "https" { static = 8053 }
+          #port "https" { static = 8053 }
         }
       }
 
       # Required on disk. Will download all files to default allocation folder
       artifact {
-        source = "git::https://github.com/www-aiqu-no/nomad-job-awx/resources"
+        source = "git::https://github.com/www-aiqu-no/nomad-job-awx.git//resources"
       }
 
       env {
@@ -125,9 +125,9 @@ job "awx-400" {
         AWX_ADMIN_PASSWORD = "awx_secret"
         #AWX_SKIP_MIGRATIONS = true
 
+        DATABASE_NAME     = "awx"
         DATABASE_USER     = "awx"
         DATABASE_PASSWORD = "awx_database"
-        DATABASE_NAME     = "awx"
         DATABASE_HOST     = "${NOMAD_IP_postgres_tcp}"
         DATABASE_PORT     = "${NOMAD_PORT_postgres_tcp}"
 
@@ -146,7 +146,7 @@ job "awx-400" {
         hostname = "awxweb"
         port_map {
           http  = 8052
-          https = 8053
+          #https = 8053
         }
         volumes = [
           "local/SECRET_KEY:/etc/tower/SECRET_KEY",
