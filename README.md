@@ -1,8 +1,14 @@
 # Ansible Tower (awx) on Nomad
-This is a basic job-definition for deploying
+Basic job-definitions for deploying
 [awx](https://github.com/ansible/awx) to your
 [nomad](https://www.nomadproject.io/) cluster
 ([HashiCorp](https://www.hashicorp.com/))
+
+Separate files for 3.0.1 & 4.0.0 versions. I recommend using 3.0.1 for now, as
+there are some problems with 4.0.0 version (missing files/env, websockets, etc)
+
+Any tips on how to improve the job-definitions, workarounds for problems, etc
+are much appreciated
 
 ## Deployment
 I use [terraform](https://terraform.io/) for managing nomad-jobs, and hence the
@@ -24,7 +30,3 @@ environment. Examples:
 - Use private container repo
 - Configure more dynamic addressing (example: [envoy](https://www.envoyproxy.io/),
 [Consul Connect](https://www.consul.io/docs/connect/index.html))
-
-## TODO
-- Add [consul template](https://github.com/hashicorp/consul-template) &
-terraform integration
